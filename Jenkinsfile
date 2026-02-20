@@ -8,23 +8,20 @@ pipeline {
             }
         }
 
-        stage('Setup Virtual Environment') {
+        stage('Python Setup') {
             steps {
-                sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install --upgrade pip
-                pip install -r requirements.txt
-                '''
+                bat 'echo Installing Python dependencies'
+                bat 'python --version'
+                bat 'python -m venv venv'
+                bat 'venv\\Scripts\\pip install --upgrade pip'
+                bat 'venv\\Scripts\\pip install -r requirements.txt'
             }
         }
 
-        stage('Run Test') {
+        stage('Run Data Check') {
             steps {
-                sh '''
-                . venv/bin/activate
-                python app/check_data.py
-                '''
+                bat 'echo Running data checker script'
+                bat 'venv\\Scripts\\python app\\check_data.py'
             }
         }
     }
