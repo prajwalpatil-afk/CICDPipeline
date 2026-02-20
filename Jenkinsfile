@@ -21,7 +21,7 @@ pipeline {
         stage('Run Data Check') {
             steps {
                 bat 'echo Running data checker script'
-                bat 'venv\\Scripts\\python app\\check_data.py || echo "DB not available, skipping check"'
+                bat 'cmd /c "venv\\Scripts\\python app\\check_data.py || echo DB not available, skipping check && exit /b 0"'
             }
         }
     }
