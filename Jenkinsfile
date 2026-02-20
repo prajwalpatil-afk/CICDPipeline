@@ -13,7 +13,7 @@ pipeline {
                 bat 'echo Installing Python dependencies'
                 bat 'python --version'
                 bat 'python -m venv venv'
-                bat 'venv\\Scripts\\pip install --upgrade pip'
+                bat 'venv\\Scripts\\python -m pip install --upgrade pip'
                 bat 'venv\\Scripts\\pip install -r requirements.txt'
             }
         }
