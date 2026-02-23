@@ -56,7 +56,7 @@ pipeline {
             echo 'Pipeline failed! Check the stage logs above.'
         }
         always {
-            echo 'Pipeline finished. Cleaning workspace...'
+            echo 'Pipeline finished. Cleaning workspace..'
             cleanWs()
         }
     }
